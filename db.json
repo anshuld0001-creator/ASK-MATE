@@ -1,0 +1,208 @@
+{
+  "users": [
+    {
+      "id": "4344af24-5fa3-4a18-8627-b66d4d34fbaa",
+      "email": "anshuld0001@gmail.com",
+      "passwordHash": "$2a$10$PsLGltRo3WlMi.XQzE7PJ.IdymuLMp/MDyOMkSO9bB5cTxomHhEju",
+      "name": "Anshul Dubey",
+      "bio": "",
+      "skills": [],
+      "languages": [],
+      "blocked": [],
+      "createdAt": "2026-09-25T02:13:46.920Z"
+    }
+  ],
+  "conversations": [
+    {
+      "id": "bacdf395-f25b-4974-bad6-19ebb2f5a011",
+      "userId": "4344af24-5fa3-4a18-8627-b66d4d34fbaa",
+      "title": "Explain machine learning to me like I'm a …",
+      "messages": [
+        {
+          "id": "4273ff49-e733-47a9-9c56-1eba0f6b9e93",
+          "role": "user",
+          "text": "Explain machine learning to me like I'm a beginner",
+          "time": "2026-09-25T02:13:56.502Z"
+        },
+        {
+          "id": "17d77336-d912-42d3-92dd-4bfaf8cd39a5",
+          "role": "assistant",
+          "text": "Machine learning is the practice of building systems that learn patterns from data rather than following hand-written rules. A practical beginner path:\n\n1. Solidify Python basics\n2. Learn NumPy and Pandas for data handling\n3. Study core ML concepts (regression, classification, overfitting)\n4. Build one small end-to-end project\n\nThe fastest way to stop feeling lost is usually to pick one small project and get stuck on it on purpose.",
+          "time": "2026-09-25T02:13:58.592Z",
+          "needsHuman": false,
+          "meta": {
+            "tokens": 90,
+            "latencyMs": 2090
+          }
+        },
+        {
+          "id": "81009f43-2c20-4006-80ff-c3a5d382f0f4",
+          "role": "user",
+          "text": "exact roadmap for python learnin",
+          "time": "2026-09-25T02:15:15.515Z"
+        },
+        {
+          "id": "b83a0361-e675-4c10-a924-41e981d68a15",
+          "role": "assistant",
+          "text": "For Python, focus on writing real small scripts before diving into frameworks: variables, functions, loops, then data structures like lists and dicts. Once that's comfortable, pick a tiny project — a script that renames files, or parses a CSV — rather than another tutorial.",
+          "time": "2026-09-25T02:15:16.943Z",
+          "needsHuman": false,
+          "meta": {
+            "tokens": 58,
+            "latencyMs": 1428
+          }
+        }
+      ],
+      "createdAt": "2026-09-25T02:13:47.051Z",
+      "updatedAt": "2026-09-25T02:15:16.943Z"
+    },
+    {
+      "id": "c03bdf73-c8bd-4806-86af-3518819aa115",
+      "userId": "4344af24-5fa3-4a18-8627-b66d4d34fbaa",
+      "title": "I want to learn machine learning but don't…",
+      "messages": [
+        {
+          "id": "58a08983-65a3-41a6-8fd9-1d38ec6bcb36",
+          "role": "user",
+          "text": "I want to learn machine learning but don't know where to start, could I talk to someone who has built ML projects?",
+          "time": "2026-09-25T02:17:39.350Z"
+        },
+        {
+          "id": "c77bfa8c-29fe-4e7f-885f-96198a361dce",
+          "role": "assistant",
+          "text": "Machine learning is the practice of building systems that learn patterns from data rather than following hand-written rules. A practical beginner path:\n\n1. Solidify Python basics\n2. Learn NumPy and Pandas for data handling\n3. Study core ML concepts (regression, classification, overfitting)\n4. Build one small end-to-end project\n\nThe fastest way to stop feeling lost is usually to pick one small project and get stuck on it on purpose.",
+          "time": "2026-09-25T02:17:41.464Z",
+          "needsHuman": true,
+          "meta": {
+            "tokens": 90,
+            "latencyMs": 2114
+          }
+        }
+      ],
+      "createdAt": "2026-09-25T02:17:33.268Z",
+      "updatedAt": "2026-09-25T02:17:41.464Z"
+    }
+  ],
+  "mates": [
+    {
+      "id": "mate-1",
+      "name": "Rahul Verma",
+      "role": "ML Engineer",
+      "skills": [
+        "python",
+        "machine learning",
+        "nlp"
+      ],
+      "languages": [
+        "hindi",
+        "english"
+      ],
+      "availability": "now"
+    },
+    {
+      "id": "mate-2",
+      "name": "Sara Kim",
+      "role": "Data Scientist",
+      "skills": [
+        "python",
+        "machine learning",
+        "statistics"
+      ],
+      "languages": [
+        "english"
+      ],
+      "availability": "in 1 hour"
+    },
+    {
+      "id": "mate-3",
+      "name": "Devansh Patel",
+      "role": "Backend Engineer",
+      "skills": [
+        "python",
+        "system design",
+        "apis"
+      ],
+      "languages": [
+        "hindi",
+        "english"
+      ],
+      "availability": "today"
+    },
+    {
+      "id": "mate-4",
+      "name": "Priya Nair",
+      "role": "Product Designer",
+      "skills": [
+        "ux",
+        "design"
+      ],
+      "languages": [
+        "english",
+        "malayalam"
+      ],
+      "availability": "now"
+    },
+    {
+      "id": "mate-5",
+      "name": "Alex Ito",
+      "role": "Career Coach",
+      "skills": [
+        "career",
+        "resume",
+        "interview"
+      ],
+      "languages": [
+        "english",
+        "japanese"
+      ],
+      "availability": "tomorrow"
+    }
+  ],
+  "connections": [],
+  "memories": [
+    {
+      "id": "40187c7a-1a96-420f-b556-6e7898a7262b",
+      "userId": "4344af24-5fa3-4a18-8627-b66d4d34fbaa",
+      "text": "Explain machine learning to me like I'm a beginner",
+      "createdAt": "2026-09-25T02:16:26.932Z"
+    }
+  ],
+  "aiRequests": [
+    {
+      "id": "f07b40fc-9d6a-4ea2-876a-1fb9e1262385",
+      "userId": "4344af24-5fa3-4a18-8627-b66d4d34fbaa",
+      "provider": "mock",
+      "model": "gpt-4o-mini",
+      "inputTokens": 12,
+      "outputTokens": 90,
+      "latencyMs": 2090,
+      "ttftMs": 39,
+      "status": "ok",
+      "ts": "2026-09-25T02:13:58.593Z"
+    },
+    {
+      "id": "77ca79e7-185f-4e34-9823-6ca6a9fe13a6",
+      "userId": "4344af24-5fa3-4a18-8627-b66d4d34fbaa",
+      "provider": "mock",
+      "model": "gpt-4o-mini",
+      "inputTokens": 7,
+      "outputTokens": 58,
+      "latencyMs": 1428,
+      "ttftMs": 27,
+      "status": "ok",
+      "ts": "2026-09-25T02:15:16.944Z"
+    },
+    {
+      "id": "2443a3ed-53dc-403c-a0e5-a3d98d05d3e6",
+      "userId": "4344af24-5fa3-4a18-8627-b66d4d34fbaa",
+      "provider": "mock",
+      "model": "gpt-4o-mini",
+      "inputTokens": 29,
+      "outputTokens": 90,
+      "latencyMs": 2114,
+      "ttftMs": 30,
+      "status": "ok",
+      "ts": "2026-09-25T02:17:41.465Z"
+    }
+  ]
+}

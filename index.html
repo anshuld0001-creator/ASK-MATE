@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ask Mate</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+
+<div id="authOverlay">
+  <div class="auth-card">
+    <div class="brand"><div class="mark"></div><div class="name">Ask Mate</div></div>
+    <div class="auth-tabs">
+      <div class="auth-tab active" id="tabLogin" onclick="switchAuthTab('login')">Sign in</div>
+      <div class="auth-tab" id="tabRegister" onclick="switchAuthTab('register')">Create account</div>
+    </div>
+    <div class="auth-err" id="authErr"></div>
+
+    <form id="loginForm" onsubmit="return onLogin(event)">
+      <div class="field"><label>Email</label><input type="email" id="loginEmail" required autocomplete="email"></div>
+      <div class="field"><label>Password</label><input type="password" id="loginPassword" required autocomplete="current-password"></div>
+      <button class="find-btn" type="submit" style="width:100%;">Sign in</button>
+    </form>
+
+    <form id="registerForm" class="hidden" onsubmit="return onRegister(event)">
+      <div class="field"><label>Name</label><input type="text" id="regName" autocomplete="name"></div>
+      <div class="field"><label>Email</label><input type="email" id="regEmail" required autocomplete="email"></div>
+      <div class="field"><label>Password (min. 8 characters)</label><input type="password" id="regPassword" required minlength="8" autocomplete="new-password"></div>
+      <button class="find-btn" type="submit" style="width:100%;">Create account</button>
+    </form>
+  </div>
+</div>
+
+<div id="app" class="hidden">
+
+  <div class="sidebar" id="sidebar">
+    <div class="brand"><div class="mark"></div><div class="name">Ask Mate</div></div>
+    <button class="new-chat" onclick="newConversation()">+ New chat</button>
+    <button class="nav-btn active" data-view="chat" onclick="setView('chat')"><span class="ico">💬</span> Chat</button>
+    <button class="nav-btn" data-view="match" onclick="setView('match')"><span class="ico">🤝</span> Find a Mate</button>
+    <button class="nav-btn" data-view="connections" onclick="setView('connections')"><span class="ico">🔗</span> Connections</button>
+    <button class="nav-btn" data-view="memories" onclick="setView('memories')"><span class="ico">🧠</span> Memories</button>
+    <button class="nav-btn" data-view="dashboard" onclick="setView('dashboard')"><span class="ico">📊</span> Performance</button>
+    <div class="nav-sep"></div>
+    <input class="convo-search" id="convoSearch" placeholder="Search conversations" oninput="renderConvoList()">
+    <div class="convo-list" id="convoList"></div>
+    <div class="sidebar-foot">
+      <div class="profile-chip" onclick="setView('profile')">
+        <div class="avatar" id="sidebarAvatar">Y</div>
+        <div><div class="pname" id="sidebarName">You</div><div class="prole">Free plan · <a href="#" onclick="logout();return false;" style="color:inherit;">Sign out</a></div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="main">
+    <div class="mobile-topbar">
+      <button onclick="document.getElementById('sidebar').classList.toggle('open')">☰</button>
+      <div style="font-weight:600;">Ask Mate</div>
+    </div>
+
+    <div class="view active" id="view-chat">
+      <div class="chat-scroll" id="chatScroll"><div class="chat-inner" id="chatInner"></div></div>
+      <div class="composer-wrap">
+        <div class="composer">
+          <textarea id="composerInput" rows="1" placeholder="What do you need help with today?" onkeydown="handleComposerKey(event)" oninput="autogrow(this)"></textarea>
+          <button class="composer-send" id="sendBtn" onclick="onSendClick()">↑</button>
+        </div>
+        <div class="composer-foot"><span id="charCount">0 / 4000</span><span>Ask Mate can be wrong. It may suggest connecting you with another person.</span></div>
+      </div>
+    </div>
+
+    <div class="view" id="view-match">
+      <div class="chat-scroll"><div class="page-inner">
+        <div class="page-head"><h2>Find a Mate</h2><p>Tell us what you need, and we'll match you with someone who can actually help — with your consent before anything is shared.</p></div>
+        <div class="req-form">
+          <div class="req-label">What do you need help with?</div>
+          <textarea class="req-textarea" id="matchQuery" placeholder="e.g. I know basic Python but I'm lost on where to start with machine learning. Want someone to point me in the right direction for 15–20 minutes."></textarea>
+          <div id="matchTags" class="tag-input-row" style="margin-top:12px;"></div>
+          <button class="find-btn" onclick="runMatch()">Find Mates</button>
+        </div>
+        <div id="matchResults"></div>
+      </div></div>
+    </div>
+
+    <div class="view" id="view-connections">
+      <div class="conn-row">
+        <div class="conn-list" id="connList"></div>
+        <div class="conn-main" id="connMain"><div style="margin:auto;text-align:center;color:var(--text2);font-size:14px;padding:20px;">No connection selected.<br>Find a Mate to start one.</div></div>
+      </div>
+    </div>
+
+    <div class="view" id="view-memories">
+      <div class="chat-scroll"><div class="page-inner">
+        <div class="page-head"><h2>Memories</h2><p>Only what's genuinely useful is kept — never a full transcript. You can remove anything.</p></div>
+        <div class="req-form">
+          <div class="req-label">Add a memory</div>
+          <div style="display:flex;gap:8px;">
+            <input class="convo-search" id="newMemoryInput" placeholder="e.g. Prefers concise answers" style="margin:0;">
+            <button class="find-btn" style="margin:0;" onclick="addMemory()">Add</button>
+          </div>
+        </div>
+        <div id="memList"></div>
+      </div></div>
+    </div>
+
+    <div class="view" id="view-dashboard">
+      <div class="chat-scroll"><div class="page-inner">
+        <div class="page-head"><h2>Session performance</h2><p>Metrics measured server-side from your real requests in this session.</p></div>
+        <div class="note-box"><b>What this is:</b> these numbers are logged for every request to <code>POST /conversations/:id/messages</code> and aggregated by <code>GET /api/metrics</code>. Right now they reflect the local rule-based mock provider (no network access in this environment) — set <code>AI_PROVIDER=openai</code> in <code>.env</code> to have these reflect a real model instead.</div>
+        <div class="stat-grid" id="statGrid"></div>
+        <div class="stat-card"><div class="slabel">Scale target</div><div class="sval">100,000</div><div class="ssub">registered users (architecture target) — not a claim of concurrent capacity, which needs real load testing against deployed infrastructure.</div></div>
+      </div></div>
+    </div>
+
+    <div class="view" id="view-profile">
+      <div class="chat-scroll"><div class="page-inner">
+        <div class="page-head"><h2>Your profile</h2><p>Only what's needed to match you with the right people.</p></div>
+        <div class="form-card">
+          <div class="field"><label>Name</label><input id="profName"></div>
+          <div class="field"><label>Bio</label><input id="profBio" placeholder="A short line about you"></div>
+          <div class="field"><label>Skills (comma separated)</label><input id="profSkills" placeholder="python, product design"></div>
+          <div class="field"><label>Languages (comma separated)</label><input id="profLangs" placeholder="English, Hindi"></div>
+          <button class="find-btn" onclick="saveProfile()">Save profile</button>
+        </div>
+      </div></div>
+    </div>
+
+  </div>
+</div>
+
+<script src="/app.js"></script>
+</body>
+</html>
