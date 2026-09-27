@@ -9,12 +9,6 @@ no-build-step vanilla JS frontend, a genuinely **streamed** AI chat
 response, and a rule-based matching system that scores real people
 against what you actually need — independent of whichever AI provider
 is plugged in.
-
-> **Read this before you run it:** this is a *production-oriented
-> prototype*, not a production deployment. The "What's real vs. what's
-> standing in for production infra" section below is short and matters
-> for setting expectations correctly.
-
 ---
 
 ## Table of contents
